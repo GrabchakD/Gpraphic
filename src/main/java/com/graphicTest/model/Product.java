@@ -5,168 +5,173 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "PRODUCT")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int productId;
+    private Long id;
     private String name;
-    private int ParamOfMeasure;
-    private int MaxCosts;
-    private int MaxStaticPressure;
-    private int MaxSpeedRotation;
-    private int MaxElectricPower;
-    private int MaxCurrent;
-    private int Capacitor;
-    private int TempTransAir;
-    private int WPPowerConsumption;
-    private int WPExpense;
-    private int WPStaticPressure;
-    private int WPSpeedRotation;
-    private int Absorption;
-    private int Injection;
+    private String ParamOfMeasure;
+    private Integer MaxCosts;
+    private Integer MaxStaticPressure;
+    private Integer MaxSpeedRotation;
+    private Double MaxElectricPower;
+    private Double MaxCurrent;
+    private Double Capacitor;
+    private String TempTransAir;
+    private Double WPPowerConsumption;
+    private Integer WPExpense;
+    private Integer WPStaticPressure;
+    private Integer WPSpeedRotation;
+    private Integer Absorption;
+    private Integer Injection;
     private String TestCategory;
     private String CategoryEffectiveness;
-    private double SpecificDependence;
-    private double CoefficientOfPerformance;
-    private double ErPNorm;
-    private double EfficiencyLevel;
-    private double OEPowerConsumption;
-    private int OEExpense;
-    private int OEStaticPressure;
-    private int OESpeedRotation;
+    private Double SpecificDependence;
+    private Double CoefficientOfPerformance;
+    private Double ErPNorm;
+    private Double EfficiencyLevel;
+    private Double OEPowerConsumption;
+    private Integer OEExpense;
+    private Integer OEStaticPressure;
+    private Integer OESpeedRotation;
+
+    public Product() {
+    }
 
 
     @Transient
     private MultipartFile productImage;
 
+    @Transient
+    private int limit;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getParamOfMeasure() {
+    public String getParamOfMeasure() {
         return ParamOfMeasure;
     }
 
-    public void setParamOfMeasure(int paramOfMeasure) {
+    public void setParamOfMeasure(String paramOfMeasure) {
         ParamOfMeasure = paramOfMeasure;
     }
 
-    public int getMaxCosts() {
+    public Integer getMaxCosts() {
         return MaxCosts;
     }
 
-    public void setMaxCosts(int maxCosts) {
+    public void setMaxCosts(Integer maxCosts) {
         MaxCosts = maxCosts;
     }
 
-    public int getMaxStaticPressure() {
+    public Integer getMaxStaticPressure() {
         return MaxStaticPressure;
     }
 
-    public void setMaxStaticPressure(int maxStaticPressure) {
+    public void setMaxStaticPressure(Integer maxStaticPressure) {
         MaxStaticPressure = maxStaticPressure;
     }
 
-    public int getMaxSpeedRotation() {
+    public Integer getMaxSpeedRotation() {
         return MaxSpeedRotation;
     }
 
-    public void setMaxSpeedRotation(int maxSpeedRotation) {
+    public void setMaxSpeedRotation(Integer maxSpeedRotation) {
         MaxSpeedRotation = maxSpeedRotation;
     }
 
-    public int getMaxElectricPower() {
+    public Double getMaxElectricPower() {
         return MaxElectricPower;
     }
 
-    public void setMaxElectricPower(int maxElectricPower) {
+    public void setMaxElectricPower(Double maxElectricPower) {
         MaxElectricPower = maxElectricPower;
     }
 
-    public int getMaxCurrent() {
+    public Double getMaxCurrent() {
         return MaxCurrent;
     }
 
-    public void setMaxCurrent(int maxCurrent) {
+    public void setMaxCurrent(Double maxCurrent) {
         MaxCurrent = maxCurrent;
     }
 
-    public int getCapacitor() {
+    public Double getCapacitor() {
         return Capacitor;
     }
 
-    public void setCapacitor(int capacitor) {
+    public void setCapacitor(Double capacitor) {
         Capacitor = capacitor;
     }
 
-    public int getTempTransAir() {
+    public String getTempTransAir() {
         return TempTransAir;
     }
 
-    public void setTempTransAir(int tempTransAir) {
+    public void setTempTransAir(String tempTransAir) {
         TempTransAir = tempTransAir;
     }
 
-    public int getWPPowerConsumption() {
+    public Double getWPPowerConsumption() {
         return WPPowerConsumption;
     }
 
-    public void setWPPowerConsumption(int WPPowerConsumption) {
+    public void setWPPowerConsumption(Double WPPowerConsumption) {
         this.WPPowerConsumption = WPPowerConsumption;
     }
 
-    public int getWPExpense() {
+    public Integer getWPExpense() {
         return WPExpense;
     }
 
-    public void setWPExpense(int WPExpense) {
+    public void setWPExpense(Integer WPExpense) {
         this.WPExpense = WPExpense;
     }
 
-    public int getWPStaticPressure() {
+    public Integer getWPStaticPressure() {
         return WPStaticPressure;
     }
 
-    public void setWPStaticPressure(int WPStaticPressure) {
+    public void setWPStaticPressure(Integer WPStaticPressure) {
         this.WPStaticPressure = WPStaticPressure;
     }
 
-    public int getWPSpeedRotation() {
+    public Integer getWPSpeedRotation() {
         return WPSpeedRotation;
     }
 
-    public void setWPSpeedRotation(int WPSpeedRotation) {
+    public void setWPSpeedRotation(Integer WPSpeedRotation) {
         this.WPSpeedRotation = WPSpeedRotation;
     }
 
-    public int getAbsorption() {
+    public Integer getAbsorption() {
         return Absorption;
     }
 
-    public void setAbsorption(int absorption) {
+    public void setAbsorption(Integer absorption) {
         Absorption = absorption;
     }
 
-    public int getInjection() {
+    public Integer getInjection() {
         return Injection;
     }
 
-    public void setInjection(int injection) {
+    public void setInjection(Integer injection) {
         Injection = injection;
     }
 
@@ -186,67 +191,67 @@ public class Product {
         CategoryEffectiveness = categoryEffectiveness;
     }
 
-    public double getSpecificDependence() {
+    public Double getSpecificDependence() {
         return SpecificDependence;
     }
 
-    public void setSpecificDependence(double specificDependence) {
+    public void setSpecificDependence(Double specificDependence) {
         SpecificDependence = specificDependence;
     }
 
-    public double getCoefficientOfPerformance() {
+    public Double getCoefficientOfPerformance() {
         return CoefficientOfPerformance;
     }
 
-    public void setCoefficientOfPerformance(double coefficientOfPerformance) {
+    public void setCoefficientOfPerformance(Double coefficientOfPerformance) {
         CoefficientOfPerformance = coefficientOfPerformance;
     }
 
-    public double getErPNorm() {
+    public Double getErPNorm() {
         return ErPNorm;
     }
 
-    public void setErPNorm(double erPNorm) {
+    public void setErPNorm(Double erPNorm) {
         ErPNorm = erPNorm;
     }
 
-    public double getEfficiencyLevel() {
+    public Double getEfficiencyLevel() {
         return EfficiencyLevel;
     }
 
-    public void setEfficiencyLevel(double efficiencyLevel) {
+    public void setEfficiencyLevel(Double efficiencyLevel) {
         EfficiencyLevel = efficiencyLevel;
     }
 
-    public double getOEPowerConsumption() {
+    public Double getOEPowerConsumption() {
         return OEPowerConsumption;
     }
 
-    public void setOEPowerConsumption(double OEPowerConsumption) {
+    public void setOEPowerConsumption(Double OEPowerConsumption) {
         this.OEPowerConsumption = OEPowerConsumption;
     }
 
-    public int getOEExpense() {
+    public Integer getOEExpense() {
         return OEExpense;
     }
 
-    public void setOEExpense(int OEExpense) {
+    public void setOEExpense(Integer OEExpense) {
         this.OEExpense = OEExpense;
     }
 
-    public int getOEStaticPressure() {
+    public Integer getOEStaticPressure() {
         return OEStaticPressure;
     }
 
-    public void setOEStaticPressure(int OEStaticPressure) {
+    public void setOEStaticPressure(Integer OEStaticPressure) {
         this.OEStaticPressure = OEStaticPressure;
     }
 
-    public int getOESpeedRotation() {
+    public Integer getOESpeedRotation() {
         return OESpeedRotation;
     }
 
-    public void setOESpeedRotation(int OESpeedRotation) {
+    public void setOESpeedRotation(Integer OESpeedRotation) {
         this.OESpeedRotation = OESpeedRotation;
     }
 
@@ -257,4 +262,14 @@ public class Product {
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
     }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 }
+
+

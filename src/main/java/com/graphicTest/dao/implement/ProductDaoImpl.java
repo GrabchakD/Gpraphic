@@ -2,6 +2,7 @@ package com.graphicTest.dao.implement;
 
 import com.graphicTest.dao.ProductDao;
 import com.graphicTest.model.Product;
+import com.graphicTest.model.SearchCriteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -49,5 +50,33 @@ public class ProductDaoImpl implements ProductDao {
         Session session = sessionFactory.getCurrentSession();
         session.delete(getProductById(id));
         session.flush();
+    }
+
+    public List<Product> getProductBySearchCriteria(SearchCriteria criteria) {
+        Query query = getQuery(criteria);
+        List<Product> products = query.list();
+        return products;
+    }
+
+    private Query getQuery(SearchCriteria criteria) {
+        Query result;
+        String sql;
+        if (criteria.getLimit() == 0) {
+            sql = "from Product " +
+                    "where WPExpense =:expense " +
+                    "and WPStaticPressure = :pressure";
+            result = sessionFactory.getCurrentSession().createQuery(sql);
+            result.setInteger("expense", criteria.getWPExpense());
+            result.setInteger("pressure", criteria.getWPStaticPressure());
+            return result;
+        }
+        sql = "from Product " +
+                "where WPExpense =:expense " +
+                "and WPStaticPressure between :lowValue and :highValue";
+        result = sessionFactory.getCurrentSession().createQuery(sql);
+        result.setInteger("expense", criteria.getWPExpense());
+        result.setInteger("lowValue", criteria.getWPStaticPressure());
+        result.setInteger("highValue", criteria.getLimit());
+        return result;
     }
 }
